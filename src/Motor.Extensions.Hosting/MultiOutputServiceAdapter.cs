@@ -50,7 +50,7 @@ namespace Motor.Extensions.Hosting
                     _messageProcessing?.Observe(watch.ElapsedMilliseconds);
                 }
 
-                foreach (var publishEvent in convertedMessages.Where(t => t.Data != null))
+                foreach (var publishEvent in convertedMessages.Where(t => t.Data is not null))
                     await _publisher.PublishMessageAsync(publishEvent, token)
                         .ConfigureAwait(false);
 

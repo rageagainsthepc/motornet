@@ -50,7 +50,7 @@ namespace Motor.Extensions.Hosting
                 {
                     var queueItem = await _queue.DequeueAsync(token)
                         .ConfigureAwait(false);
-                    if (queueItem == null)
+                    if (queueItem is null)
                     {
                         continue;
                     }
